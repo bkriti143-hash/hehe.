@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mankuu & Kittu — 6 Years of Us ♡</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #f7f0e8;
+            color: #392d2a;
+            line-height: 1.7;
+        }
+
+        /* -----------------------------
+           FLOATING HEARTS
+        ----------------------------- */
+
+        .heart {
+            position: fixed;
+            color: rgba(132, 78, 75, 0.25);
+            font-size: 18px;
+            animation: float 8s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(2) {
+            left: 35%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(3) {
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(4) {
+            left: 90%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0% {
+                bottom: -30px;
+                opacity: 0;
+                transform: translateX(0) rotate(0deg);
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateX(40px) rotate(180deg);
+            }
+        }
+
+
+        /* -----------------------------
+           HERO / OPENING PAGE
+        ----------------------------- */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at top left, #ead7d0, transparent 40%),
+                radial-gradient(circle at bottom right, #e4d0c1, transparent 40%),
+                #f7f0e8;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            animation: appear 2s ease;
+        }
+
+        .small-heading {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #8b625d;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 9vw, 90px);
+            font-weight: normal;
+            color: #4a3430;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: clamp(18px, 4vw, 28px);
+            font-weight: normal;
+            font-style: italic;
+            color: #765650;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: auto;
+            font-size: 17px;
+            color: #624d48;
+        }
+
+        .enter-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 30px;
+            border: 1px solid #8b625d;
+            border-radius: 50px;
+            color: #5a403b;
+            text-decoration: none;
+            transition: 0.3s ease;
+            background: rgba(255,255,255,0.35);
+        }
+
+        .enter-button:hover {
+            background: #5a403b;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* -----------------------------
+           GENERAL SECTIONS
+        ----------------------------- */
+
+        section {
+            padding: 100px 25px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            color: #9a7069;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px, 6vw, 52px);
+            font-weight: normal;
+            margin-top: 10px;
+            color: #493430;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            color: #755e59;
+        }
+
+
+        /* -----------------------------
+           OUR STORY
+        ----------------------------- */
+
+        #story {
+            background: #eee2d8;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #b9968d;
+            transform: translateX(-50%);
+        }
+
+        .memory {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        .memory:nth-child(odd) {
+            text-align: right;
+        }
+
+        .memory:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .memory::after {
+            content: "♡";
+            position: absolute;
+            top: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f7f0e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #805c57;
+            font-size: 15px;
+        }
+
+        .memory:nth-child(odd)::after {
+            right: -16px;
+        }
+
+        .memory:nth-child(even)::after {
+            left: -16px;
+        }
+
+        .memory h3 {
+            font-size: 25px;
+            font-weight: normal;
+            color: #553b36;
+        }
+
+        .memory .year {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #9a7069;
+            text-transform: uppercase;
+        }
+
+        .memory p {
+            margin-top: 8px;
+            color: #705a55;
+        }
+
+
+        /* -----------------------------
+           VIDEO
+        ----------------------------- */
+
+        #video {
+            background: #f7f0e8;
+            text-align: center;
+        }
+
+        .video-box {
+            max-width: 750px;
+            height: 420px;
+            margin: auto;
+            border-radius: 25px;
+            background: #e2d1c7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #765650;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(80, 50, 45, 0.08);
+        }
+
+        .video-box span {
+            font-size: 45px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+
+        /* -----------------------------
+           PLAYLIST
+        ----------------------------- */
+
+        #songs {
+            background: #e9ddd4;
+        }
+
+        .songs {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(90,60,55,0.15);
+        }
+
+        .song-name {
+            font-size: 18px;
+        }
+
+        .song-note {
+            font-size: 13px;
+            color: #8c6b65;
+        }
+
+        .music-symbol {
+            font-size: 25px;
+        }
+
+
+        /* -----------------------------
+           OPEN WHEN
+        ----------------------------- */
+
+        #letters {
+            background: #f7f0e8;
+        }
+
+        .envelopes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .envelope {
+            border: 1px solid #c7aaa1;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(80,50,45,0.08);
+        }
+
+        .envelope-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .envelope h3 {
+            font-weight: normal;
+        }
+
+
+        /* -----------------------------
+           QUIZ
+        ----------------------------- */
+
+        #quiz {
+            background: #eee2d8;
+        }
+
+        .quiz-box {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+            background: rgba(255,255,255,0.3);
+            padding: 40px 25px;
+            border-radius: 25px;
+        }
+
+        .quiz-question {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-options button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            border: 1px solid #b9958c;
+            background: transparent;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            color: #523c37;
+            transition: 0.2s;
+        }
+
+        .quiz-options button:hover {
+            background: #5a403b;
+            color: white;
+        }
+
+        #quiz-result {
+            margin-top: 25px;
+            font-size: 20px;
+        }
+
+
+        /* -----------------------------
+           FINAL LETTER
+        ----------------------------- */
+
+        #letter {
+            background: #4b3632;
+            color: #f7eee7;
+            text-align: center;
+        }
+
+        #letter .section-title h2 {
+            color: #f7eee7;
+        }
+
+        #letter .section-title .eyebrow {
+            color: #d6b8ae;
+        }
+
+        .final-letter {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-size: 25px;
+            font-style: italic;
+        }
+
+
+        /* -----------------------------
+           FOOTER
+        ----------------------------- */
+
+        footer {
+            background: #382825;
+            color: #cbb4ad;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+
+        /* -----------------------------
+           ANIMATION
+        ----------------------------- */
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* -----------------------------
+           MOBILE
+        ----------------------------- */
+
+        @media (max-width: 650px) {
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .memory,
+            .memory:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 45px;
+                padding-right: 5px;
+                text-align: left;
+            }
+
+            .memory::after,
+            .memory:nth-child(odd)::after,
+            .memory:nth-child(even)::after {
+                left: 0;
+                right: auto;
+            }
+
+            .video-box {
+                height: 250px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+/* ==========================================
+   CUTE ROMANTIC SCRAPBOOK DECORATIONS
+========================================== */
+
+.cute-sticker {
+    position: absolute;
+    z-index: 3;
+    user-select: none;
+    pointer-events: none;
+    animation: stickerFloat 4s ease-in-out infinite;
+}
+
+.sticker-teddy {
+    font-size: 48px;
+    transform: rotate(-8deg);
+}
+
+.sticker-bow {
+    font-size: 42px;
+    transform: rotate(8deg);
+}
+
+.sticker-heart {
+    font-size: 38px;
+}
+
+.sticker-flower {
+    font-size: 34px;
+}
+
+.sticker-star {
+    font-size: 28px;
+}
+
+.sticker-sparkle {
+    font-size: 22px;
+}
+
+@keyframes stickerFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+
+/* little handwritten-looking notes */
+
+.love-note {
+    display: inline-block;
+    background: #fffaf5;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(70, 40, 35, 0.08);
+    transform: rotate(-3deg);
+    color: #765650;
+    font-size: 14px;
+    position: relative;
+}
+
+.love-note::before {
+    content: "♡";
+    position: absolute;
+    top: -12px;
+    left: -8px;
+    font-size: 20px;
+}
+
+
+/* cute little divider */
+
+.cute-divider {
+    text-align: center;
+    margin: 35px auto;
+    color: #a77870;
+    font-size: 20px;
+    letter-spacing: 8px;
+}
+
+.cute-divider span {
+    display: inline-block;
+    animation: tinyBounce 2s ease-in-out infinite;
+}
+
+@keyframes tinyBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* scrapbook cards */
+
+.scrap-card {
+    background: #fffaf5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(70, 40, 35, 0.10);
+    position: relative;
+}
+
+.scrap-card::after {
+    content: "♡";
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+    font-size: 25px;
+    color: #c99890;
+}
+
+
+/* washi tape effect */
+
+.washi {
+    position: absolute;
+    width: 75px;
+    height: 22px;
+    background: rgba(215, 177, 166, 0.55);
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+}
+
+
+/* cute memory image placeholder */
+
+.memory-photo {
+    height: 180px;
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #ead8cf,
+        #f7eee8
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 0 1px rgba(100,70,60,0.08);
+}
+
+
+/* romantic quote cards */
+
+.love-quote {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #c7aaa1;
+    border-bottom: 1px solid #c7aaa1;
+    font-style: italic;
+    font-size: 20px;
+    color: #6e504a;
+}
+
+
+/* cute little label */
+
+.cute-label {
+    display: inline-block;
+    background: #e8cec6;
+    color: #684a44;
+    padding: 7px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+
+/* make envelopes more romantic */
+
+.envelope {
+    position: relative;
+    overflow: visible;
+}
+
+.envelope::before {
+    content: "♡";
+    position: absolute;
+    top: -14px;
+    right: 15px;
+    font-size: 24px;
+    color: #a66f68;
+}
+
+.envelope::after {
+    content: "✦";
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    color: #c49a91;
+    font-size: 16px;
+}
+
+
+/* cute song cards */
+
+.song {
+    background: rgba(255,255,255,0.35);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 18px 22px;
+    border-bottom: none;
+    transition: 0.3s ease;
+}
+
+.song:hover {
+    transform: translateX(7px);
+    background: rgba(255,255,255,0.65);
+}
+
+
+/* romantic quiz box */
+
+.quiz-box {
+    border: 1px dashed #b9958c;
+    position: relative;
+}
+
+.quiz-box::before {
+    content: "🎀";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+}
+
+
+/* final heart */
+
+.final-heart {
+    font-size: 50px;
+    margin: 30px 0;
+    animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* little star background */
+
+.sparkle {
+    position: absolute;
+    color: #b89088;
+    animation: sparkle 2.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+    /* ============================= */
+/* VINTAGE LOVE MUSIC PLAYER */
+/* ============================= */
+
+.vintage-player {
+  position: relative;
+  max-width: 650px;
+  margin: 40px auto 20px;
+  padding: 45px 35px 30px;
+  background: #f5ead8;
+  border: 1px solid rgba(91, 67, 54, 0.2);
+  border-radius: 28px;
+  box-shadow:
+    0 20px 50px rgba(70, 45, 30, 0.12),
+    inset 0 0 0 7px rgba(255,255,255,0.25);
+  text-align: center;
+  overflow: hidden;
+}
+
+.vintage-player::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(91, 67, 54, 0.25);
+  border-radius: 21px;
+  pointer-events: none;
+}
+
+.player-decoration {
+  position: absolute;
+  font-size: 25px;
+  z-index: 2;
+  opacity: 0.75;
+}
+
+.top-left {
+  top: 25px;
+  left: 28px;
+}
+
+.top-right {
+  top: 25px;
+  right: 28px;
+}
+
+.record-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.record {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      #352b27 0px,
+      #352b27 2px,
+      #28211e 3px,
+      #352b27 5px
+    );
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.22);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.record::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #e8d3b5;
+  border-radius: 50%;
+}
+
+.record-center {
+  width: 48px;
+  height: 48px;
+  background: #b78b70;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 3px solid #f5ead8;
+  box-shadow: 0 0 0 2px #b78b70;
+}
+
+.record-center span {
+  font-size: 17px;
+}
+
+.record.playing {
+  animation: spinRecord 3s linear infinite;
+}
+
+@keyframes spinRecord {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.player-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #94705e;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#nowPlaying {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 29px;
+  color: #4b3830;
+}
+
+.player-quote {
+  max-width: 440px;
+  margin: 12px auto 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #796158;
+  font-style: italic;
+}
+
+.main-play-button {
+  border: none;
+  background: #6d4c41;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 7px 18px rgba(70,45,30,0.18);
+}
+
+.main-play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(70,45,30,0.22);
+}
+
+.track-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.track {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45px 1fr 35px;
+  align-items: center;
+  text-align: left;
+  padding: 14px 15px;
+  border: 1px solid rgba(91, 67, 54, 0.13);
+  background: rgba(255,255,255,0.45);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #4b3830;
+}
+
+.track:hover {
+  transform: translateX(4px);
+  background: rgba(255,255,255,0.7);
+}
+
+.track.active {
+  background: #ead7c0;
+  border-color: rgba(109,76,65,0.25);
+  transform: translateX(4px);
+}
+
+.track-number {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  color: #9b7665;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.track-info strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.track-info small {
+  font-size: 11px;
+  color: #8b7166;
+}
+
+.track-icon {
+  text-align: center;
+  font-size: 18px;
+}
+
+.tiny-player-note {
+  margin-top: 25px;
+  font-size: 11px;
+  color: #a08576;
+  letter-spacing: 0.5px;
+}
+
+.music-bottom-note {
+  text-align: center;
+  margin-top: 18px;
+  color: #927568;
+  font-size: 13px;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+
+  .vintage-player {
+    margin: 30px 8px 15px;
+    padding: 38px 18px 25px;
+    border-radius: 23px;
+  }
+
+  .record {
+    width: 125px;
+    height: 125px;
+  }
+
+  #nowPlaying {
+    font-size: 25px;
+  }
+
+  .track {
+    grid-template-columns: 35px 1fr 28px;
+    padding: 13px 10px;
+  }
+
+  .track-info strong {
+    font-size: 13px;
+  }
+
+  .track-info small {
+    font-size: 10px;
+  }
+}</style>
+</head>
+
+
+<body>
+
+    <!-- Floating hearts -->
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+
+
+    <!-- =========================
+         OPENING
+    ========================== -->
+
+    <section class="hero" id="home">
+<!-- cute opening decorations -->
+
+<div class="cute-sticker sticker-teddy"
+     style="left: 8%; top: 18%;">
+    🧸
+</div>
+
+<div class="cute-sticker sticker-bow"
+     style="right: 10%; top: 20%;">
+    🎀
+</div>
+
+<div class="cute-sticker sticker-heart"
+     style="left: 18%; bottom: 18%;">
+    ♡
+</div>
+
+<div class="cute-sticker sticker-flower"
+     style="right: 15%; bottom: 15%;">
+    🌷
+</div>
+
+<div class="sparkle"
+     style="left: 25%; top: 25%;">
+    ✦
+</div>
+
+<div class="sparkle"
+     style="right: 28%; top: 35%;">
+    ✧
+</div>
+
+<div class="sparkle"
+     style="left: 15%; top: 60%;">
+    ˚
+</div>
+        <div class="hero-content">
+
+            <div class="small-heading">
+                ♡ a little something from your Kittu ♡
+            </div>
+
+            <h1>
+                Mankuu<br>
+                & Kittu
+            </h1>
+
+            <h2>
+                Six years of choosing each other ♡
+            </h2>
+<div class="cute-divider">
+    ˚₊‧ ♡ ‧₊˚
+</div>
+            <p>
+                Six years. One accidental reply.
+                One boy who fell first.
+                And a love story neither of us knew we'd write.
+            </p>
+
+            <a href="#story" class="enter-button">
+                Enter our little universe ♡
+            </a>
+<br><br>
+
+<div class="love-note">
+    still my favourite person in the universe ♡
+</div>
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         OUR STORY
+    ========================== -->
+
+    <section id="story">
+<div class="cute-sticker sticker-flower"
+     style="left: 7%; top: 10%;">
+    🌷
+</div>
+
+<div class="cute-sticker sticker-heart"
+     style="right: 7%; top: 15%;">
+    💗
+</div>
+
+<div class="cute-sticker sticker-star"
+     style="right: 12%; bottom: 10%;">
+    ✦
+</div>
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <div class="eyebrow">
+                    Chapter One
+                </div>
+
+                <h2>
+                    Our Story
+                </h2>
+
+                <p>
+                    Six years. Six little chapters of us.
+                </p>
+<div class="cute-divider">
+    ♡  ✦  ♡  ✦  ♡
+</div>
+
+<div class="love-quote">
+    "Somehow, an accidental reply became my favourite story."
+</div>
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="memory">
+<div class="memory-photo">
+   <img
+  src="images/IMG-20261009-WA0031.jpg"
+  alt="Our first memory"
+  class="memory-photo"
+>
+</div>
+                    <div class="year">
+                        Year One
+                    </div>
+
+                    <h3>
+                        The Beginning
+                    </h3>
+
+                    <p>
+                       one accidental story reply, turend into a lovestory and now You are the best thing that's ever been mine
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+<div class="memory-photo">
+    <img
+  src="images/IMG-20261009-WA0009.jpg"
+  alt="Our first memory"
+  class="memory-photo"
+>
+</div>
+                    <div class="year">
+                        Year Two
+                    </div>
+
+                    <h3>
+                        Getting Closer
+                    </h3>
+
+                    <p>
+                        Because of you, I laugh a little harder, cry a little less, and smile a lot more
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+<div class="memory-photo">
+    <img
+  src="images/IMG-20261009-WA0046.jpg"
+  alt="Our first memory"
+  class="memory-photo"
+>
+</div>
+                    <div class="year">
+                        Year Three
+                    </div>
+
+                    <h3>
+                        More of Us
+                    </h3>
+
+                    <p>
+                        For the two of us, home isn't a place. It is a person. And we are finally home
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+<div class="memory-photo">
+   <img
+  src="images/IMG-20261009-WA0025.jpg"
+  alt="Our first memory"
+  class="memory-photo"
+>
+</div>
+                    <div class="year">
+                        Year Four
+                    </div>
+
+                    <h3>
+                        Growing Together
+                    </h3>
+
+                    <p>
+                        You are my today, my tomorrow, and every beautiful moment in between
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+<div class="memory-photo">
+   <img
+  src="images/IMG-20261009-WA0047.jpg"
+  alt="Our first memory"
+  class="memory-photo"
+>
+</div>
+                    <div class="year">
+                        Year Five
+                    </div>
+
+                    <h3>
+                        Still Us
+                    </h3>
+
+                    <p>
+                        I'd choose you in every lifetime, over and over again
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+<div class="memory-photo">
+    <img
+  src="images/IMG-20261009-WA0005.jpg"
+  alt="Our first memory"
+  class="memory-photo"
+>
+</div>
+                    <div class="year">
+                        Year Six
+                    </div>
+
+                    <h3>
+                        Here We Are
+                    </h3>
+
+                    <p>
+                        Together, we are perfectly foolish in love.Cheers to another year!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         VIDEO
+    ========================== -->
+
+    <section id="video">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <div class="eyebrow">
+                    A Little Time Capsule
+                </div>
+
+                <h2>
+                    ♡60 Seconds of Us♡
+                </h2>
+
+                <p>
+                    A tiny movie for my favourite person.
+                </p>
+
+            </div>
+
+
+            
+<div class="video-frame">
+  <video
+    controls
+    playsinline
+    preload="metadata"
+    poster="images/Landscape.jpg"
+  >
+    <source
+      src="videos/our-60-seconds.mp4.mp4"
+      type="video/mp4"
+    >
+    Your browser does not support video playback.
+  </video>
+</div>
+
+                <div>
+
+                    <span>♡</span>
+
+                    <strong>
+                        Little montage of us 
+                    </strong>
+
+                    <p>
+                        I Love You Baby
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SONGS
+    ========================== -->
+
+<section id="songs">
+  <div class="section-container">
+
+    <div class="section-title">
+      <div class="eyebrow">♡ OUR SOUNDTRACK ♡</div>
+      <h2>Little Pieces of Us</h2>
+      <p>Some songs are just songs... these ones are little pieces of us. ♡</p>
+    </div>
+
+    <div class="vintage-player">
+
+      <div class="player-decoration top-left">✦</div>
+      <div class="player-decoration top-right">♡</div>
+
+      <div class="record-wrap">
+        <div class="record" id="record">
+          <div class="record-center">
+            <span>♡</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="player-label">
+        <span>NOW PLAYING</span>
+      </div>
+
+      <h3 id="nowPlaying">Darasal</h3>
+
+      <p class="player-quote" id="playerQuote">
+        "Some songs somehow sound exactly like us."
+      </p>
+
+      <button class="main-play-button" onclick="openCurrentSong()">
+        ♫ Play our song
+      </button>
+
+      <div class="track-list">
+
+        <button
+          class="track active"
+          onclick="selectSong(
+            'Darasal',
+            'Some songs somehow sound exactly like us. ♡',
+            'https://youtu.be/AKmql48K29w?si=-vOOXX75TlCAlifN',
+            this
+          )"
+        >
+          <span class="track-number">01</span>
+
+          <span class="track-info">
+            <strong>Darasal</strong>
+            <small>our little love song ♡</small>
+          </span>
+
+          <span class="track-icon">♪</span>
+        </button>
+
+
+
+      </div>
+
+      <div class="tiny-player-note">
+        made with love by Kittu for Mankuu ♡
+      </div>
+
+    </div>
+
+    <div class="music-bottom-note">
+      ♡ press play whenever you miss us ♡
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- =========================
+         OPEN WHEN LETTERS
+    ========================== -->
+
+    <section id="letters">
+<div class="cute-sticker sticker-bow"
+     style="left: 8%; top: 12%;">
+    🎀
+</div>
+
+<div class="cute-sticker sticker-heart"
+     style="right: 8%; top: 18%;">
+    💌
+</div>
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <div class="eyebrow">
+                    For Later
+                </div>
+
+                <h2>
+                    Open When...
+                </h2>
+
+                <p>
+                    Little pieces of Kittu for every version of you.
+                </p>
+<div class="cute-divider">
+    💌  ♡  💌
+</div>
+            </div>
+
+
+            <div class="envelopes">
+
+                <div class="envelope"
+                     onclick="openLetter('Happy')">
+
+                    <div class="envelope-icon">
+                        💌
+                    </div>
+
+                    <h3>
+                        You miss me
+                    </h3>
+
+                </div>
+
+
+                <div class="envelope"
+                     onclick="openLetter('Sad')">
+
+                    <div class="envelope-icon">
+                        💌
+                    </div>
+
+                    <h3>
+                        You are having a bad day
+                    </h3>
+
+                </div>
+
+
+                <div class="envelope"
+                     onclick="openLetter('Love')">
+
+                    <div class="envelope-icon">
+                        💌
+                    </div>
+
+                    <h3>
+                        You need a reminder
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         QUIZ
+    ========================== -->
+
+    <section id="quiz">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <div class="eyebrow">
+                    Important Question
+                </div>
+
+                <h2>
+                    How Well Do You Know Your Kittu?
+                </h2>
+
+                <p>
+                    Let's see, baby...
+                </p>
+
+            </div>
+
+
+            <div class="quiz-box">
+
+                <div class="quiz-question">
+                    What does your Kittu call you? ♡
+                </div>
+
+                <div class="quiz-options">
+
+                    <button onclick="quizAnswer(false)">
+                        Darling
+                    </button>
+
+                    <button onclick="quizAnswer(true)">
+                        Baby
+                    </button>
+
+                    <button onclick="quizAnswer(false)">
+                        Jaanu
+                    </button>
+
+                    <button onclick="quizAnswer(false)">
+                        Mankuu ji
+                    </button>
+
+                </div>
+
+                <div id="quiz-result"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FINAL LETTER
+    ========================== -->
+
+    <section id="letter">
+<div class="cute-sticker sticker-heart"
+     style="left: 10%; top: 12%;">
+    💗
+</div>
+
+<div class="cute-sticker sticker-star"
+     style="right: 10%; top: 18%;">
+    ✦
+</div>
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <div class="eyebrow">
+                    And Finally...
+                </div>
+
+                <h2>
+                    A Letter For You
+                </h2>
+
+            </div>
+
+<div class="final-heart">
+    ♡
+</div>
+            <div class="final-letter">
+
+                <p>
+                    Dear Mankuu,
+                </p>
+
+                <br>
+
+                <p>
+                    Six years ago, neither of us knew that
+                    one accidental reply would become something
+                    this beautiful.
+                </p>
+
+                <br>
+
+                <p>
+                    I don't know how I got lucky enough to have
+                    your patience, your care, your hugs, your
+                    smile and those eyes that are still my
+                    favourite thing in the entire universe.
+                </p>
+
+                <br>
+
+                <p>
+                    Your arms feel like home.
+                    Your smile still makes me melt.
+                    And somehow, after all these years,
+                    you're still my favourite one.
+                </p>
+
+                <br>
+
+                <p>
+                    Happy 6 years, baby.
+                    Here's to everything we've been,
+                    everything we are,
+                    and everything still waiting for us.
+                </p>
+
+                <div class="signature">
+                    Always yours,<br>
+                    Kittu ♡
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        Made with love, for Mankuu ♡
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function openLetter(type) {
+
+            if (type === "Happy") {
+
+                alert(
+                    "If you're reading this because you miss me: " +
+                    "come here. You already know where your hug is waiting. ♡"
+                );
+
+            }
+
+            else if (type === "Sad") {
+
+                alert(
+                    "Bad day or not, remember this: " +
+                    "you never have to handle everything alone. " +
+                    "You've got your Kittu. ♡"
+                );
+
+            }
+
+            else if (type === "Love") {
+
+                alert(
+                    "Just in case you ever forget: " +
+                    "I love you. More than this tiny website could ever explain. ♡"
+                );
+
+            }
+
+        }
+
+
+        function quizAnswer(correct) {
+
+            const result = document.getElementById("quiz-result");
+
+            if (correct) {
+
+                result.innerHTML =
+                    "Correct! Obviously you know your Kittu. 😂❤️";
+
+            } else {
+
+                result.innerHTML =
+                    "Wrong answer, baby. Think again. 😂";
+
+            }
+
+        }
+
+    /* ============================= */
+/* VINTAGE MUSIC PLAYER */
+/* ============================= */
+
+let currentSongLink = "https://youtu.be/AKmql48K29w?si=IaFXEsOB5H_h55_z";
+
+function selectSong(title, quote, link, element) {
+
+  document.getElementById("nowPlaying").textContent = title;
+
+  document.getElementById("playerQuote").textContent =
+    '"' + quote + '"';
+
+  currentSongLink = link;
+
+  document.querySelectorAll(".track").forEach(function(track) {
+    track.classList.remove("active");
+  });
+
+  element.classList.add("active");
+
+  document.getElementById("record").classList.add("playing");
+}
+
+function openCurrentSong() {
+
+  if (
+    currentSongLink === "" ||
+    currentSongLink.includes("PASTE_")
+  ) {
+    alert("Add the YouTube link for this song first ♡");
+    return;
+  }
+
+  window.open(currentSongLink, "_blank");
+
+  document.getElementById("record").classList.add("playing");
+}</script>
+
+</body>
+</html>
